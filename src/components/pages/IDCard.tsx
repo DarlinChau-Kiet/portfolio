@@ -4,8 +4,7 @@ import { profile } from '../../data/profile';
 import { Modal } from '../ui/Modal';
 import { ContactContent, SkillsContent, ExperienceContent, EducationContent } from '../sections/Modals';
 import { Briefcase, Code, Award, ArrowRight, User, MapPin, GraduationCap } from 'lucide-react';
-import mattruoc from '../../assets/cccd.png';
-import matsau from '../../assets/cccdback.png';
+import './IDCard.css';
 // logic
 export const IDCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -22,9 +21,9 @@ export const IDCard = () => {
 
   return (
     <div 
-      className="relative w-[500px] h-[300px] cursor-pointer group/card" 
+      className="card-perspective relative w-[500px] h-[300px] cursor-pointer group/card" 
       onClick={handleFlip}
-      style={{ perspective: '1500px' }} /* Đảm bảo góc nhìn 3D hoạt động 100% */
+      /* Đảm bảo góc nhìn 3D hoạt động 100% */
     >
       <motion.div
         className="w-full h-full relative preserve-3d shadow-[0_25px_60px_rgba(0,0,0,0.4)] rounded-[28px]"
@@ -33,14 +32,7 @@ export const IDCard = () => {
       >
         
         {/* --- MẶT TRƯỚC --- */}
-        <div 
-          className="absolute w-full h-full backface-hidden rounded-[28px] overflow-hidden flex items-center p-5 border border-white/20"
-          style={{ 
-            backgroundImage: `url(${mattruoc})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        >
+        <div className="card-front absolute w-full h-full backface-hidden rounded-[28px] overflow-hidden flex items-center p-5 border border-white/20">
           <div className="absolute top-4 right-5 w-2.5 h-2.5 bg-[#f03a3a] rounded-full shadow-[0_0_8px_rgba(240,58,58,0.6)] animate-pulse"></div>
 
           {/* Khối Teal */}
@@ -85,14 +77,7 @@ export const IDCard = () => {
         </div>
 
         {/* --- MẶT SAU --- */}
-        <div 
-          className="absolute w-full h-full backface-hidden rounded-[28px] p-8 flex flex-col items-center justify-between shadow-2xl  text-[#1a1111] border border-white/20"
-          style={{ 
-            backgroundImage: `url(${matsau})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            transform: "rotateY(180deg)" }}
-        >
+        <div className="card-back absolute w-full h-full backface-hidden rounded-[28px] p-8 flex flex-col items-center justify-between shadow-2xl  text-[#1a1111] border border-white/20">
           <div className="absolute top-4 right-5 w-2.5 h-2.5 bg-[#f03a3a] rounded-full shadow-[0_0_8px_rgba(240,58,58,0.6)] animate-pulse"></div>
           <div className="translate-x-[-20px] translate-y-[-20px] w-full flex justify-between items-center opacity-150 font-bold">
             <div className="flex items-center gap-2 text-[#2a4e51]">
@@ -134,7 +119,7 @@ export const IDCard = () => {
 
       {/* --- LỚP MODALS --- */}
       <div className="prevent-flip" onClick={e => e.stopPropagation()}>
-        <Modal isOpen={activeModal === 'contact'} onClose={() => setActiveModal(null)} title="Contact Info">
+        <Modal isOpen={activeModal === 'contact'} onClose={() => setActiveModal(null)} title="Contact Information">
           <ContactContent />
         </Modal>
         <Modal isOpen={activeModal === 'skills'} onClose={() => setActiveModal(null)} title="Skills Overview">

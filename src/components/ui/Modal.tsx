@@ -45,6 +45,7 @@ export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
               <button 
                 onClick={onClose}
                 className="p-2 -mr-2 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-colors"
+                aria-label="Close modal"
               >
                 <X size={20} />
               </button>
@@ -56,6 +57,8 @@ export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
           </motion.div>
         </div>
       )}
+
+      
     </AnimatePresence>
   );
 };

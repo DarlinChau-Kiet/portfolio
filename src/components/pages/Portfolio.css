@@ -1,0 +1,11 @@
+.portfolio-bg {
+  background-image: url('../../assets/Background.png');
+}
+
+.portfolio-gradient {
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(255, 255, 255, 0.18),
+    transparent 20%
+  );
+}

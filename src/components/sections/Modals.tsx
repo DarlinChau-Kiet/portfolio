@@ -5,7 +5,7 @@ import { profile } from '../../data/profile';
 
 export const ContactContent = () => {
   return (
-    <div className="space-y-3">
+    <div className="space-y-4 space-x-4">
       {Object.entries(profile.contacts).map(([key, value]) => {
         let Icon: React.ElementType = Mail;
         if (key === 'phone') Icon = Phone;
@@ -50,8 +50,7 @@ export const SkillsContent = () => {
             </div>
             <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden">
               <div 
-                className="bg-primary/80 h-full rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]" 
-                style={{ width: `${skill.level}%` }}
+                className={`bg-primary/80 h-full rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)] skill-level-${skill.level}`}
               ></div>
             </div>
           </div>
